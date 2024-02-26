@@ -27,22 +27,25 @@ using Keys;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 
+// OpenAI keys
 var modelId = OpenAI.ModelId;
 var apiKey = OpenAI.ApiKey;
 
+// Create a chat completion service
 var builder = Kernel.CreateBuilder();
 builder.AddOpenAIChatCompletion(modelId, apiKey);
 
+// Get the chat completion service
 Kernel kernel = builder.Build();
 var chat = kernel.GetRequiredService<IChatCompletionService>();
 
+// Create a sample chat history
 var history = new ChatHistory();
-
 history.AddSystemMessage("You are a helpful assistant.");
-history.AddUserMessage("Who won the world series in 2020?");
-history.AddAssistantMessage("The LA Dodgers won in 2020.");
-history.AddUserMessage("Where was it played?");
+history.AddUserMessage("Who won the world cup in 2022?");
+history.AddAssistantMessage("Argentina won in 2022.");
+history.AddUserMessage("Where was it played? and who was the best player?");
 
+// run the prompt
 var result = await chat.GetChatMessageContentsAsync(history);
-
 Console.WriteLine(result[^1].Content);
