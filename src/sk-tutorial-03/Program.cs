@@ -1,7 +1,7 @@
 ﻿//    Copyright (c) 2024
 //    Author      : Bruno Capuano
 //    Change Log  :
-//    - Sample console application to use OpenAI and Semantic Kernel
+//    - Sample console application to show how to use plugins with Semantic Kernel
 //
 //    The MIT License (MIT)
 //
@@ -35,10 +35,8 @@ var builder = Kernel.CreateBuilder();
 builder.AddOpenAIChatCompletion(modelId, apiKey);
 Kernel kernel = builder.Build();
 
-// path of plugins
-var pluginsDirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\",  "plugins");
-
 // Load Plugins collection
+var pluginsDirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\",  "plugins");
 var questionPluginFunctions = kernel.ImportPluginFromPromptDirectory(pluginsDirectoryPath);
 
 // questions
