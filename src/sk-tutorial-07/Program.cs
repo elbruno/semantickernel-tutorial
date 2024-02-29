@@ -1,7 +1,7 @@
 ﻿//    Copyright (c) 2024
 //    Author      : Bruno Capuano
 //    Change Log  :
-//    - Sample console application to show how to use native functions with Semantic Kernel
+//    - Sample console application to show how to use semantic memory with Semantic Kernel
 //
 //    The MIT License (MIT)
 //
