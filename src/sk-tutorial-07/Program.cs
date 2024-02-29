@@ -42,7 +42,9 @@ builder.AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
 #pragma warning disable SKEXP0003, SKEXP0011, SKEXP0052
 var memoryBuilder = new MemoryBuilder();
 
-memoryBuilder.WithAzureOpenAITextEmbeddingGeneration(
+memoryBuilder.
+    
+    WithAzureOpenAITextEmbeddingGeneration(
         AzureOpenAI.EmbeddingsModel,
          AzureOpenAI.Endpoint,
         AzureOpenAI.ApiKey,
