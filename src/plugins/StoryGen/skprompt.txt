@@ -1,0 +1,13 @@
+WRITE A SHORT STORY ABOUT THE HERO BELOW
+
+THE STORY MUST BE:
+- IN ENGLISH
+- USE EMOJIS AS PART OF THE STORY
+- THE STORY MUST HAVE A BEGINNING, MIDDLE AND END
+
+The hero of this story is {{$hero}}
+
++++++
+
+{{$input}}
++++++

@@ -1,0 +1,27 @@
+{
+    "schema": 1,
+    "description": "Generate a out of office message for a given hero subject",
+    "models": [
+        {
+            "max_tokens": 250,
+            "temperature": 0.3,
+            "top_p": 0.0,
+            "presence_penalty": 0.0,
+            "frequency_penalty": 0.0
+        }
+    ],
+    "input": {
+        "parameters": [
+            {
+                "name": "input",
+                "description": "The reason for being out of office",
+                "defaultValue": ""
+            },
+            {
+                "name": "hero",
+                "description": "hero name",
+                "defaultValue": "Catwoman"
+            }
+        ]
+    }
+}
