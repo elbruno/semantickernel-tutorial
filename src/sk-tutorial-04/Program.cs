@@ -1,7 +1,7 @@
 ﻿//    Copyright (c) 2024
 //    Author      : Bruno Capuano
 //    Change Log  :
-//    - Sample console application to show how to use plugins with Semantic Kernel
+//    - Sample console application to show how to use plugins with arguments with Semantic Kernel
 //
 //    The MIT License (MIT)
 //
@@ -37,14 +37,14 @@ builder.AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
 Kernel kernel = builder.Build();
 
 // Load Plugins collection
-var pluginsDirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\",  "plugins");
+var pluginsDirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\", "plugins");
 var questionPluginFunctions = kernel.ImportPluginFromPromptDirectory(pluginsDirectoryPath);
 
 // questions
-var q1 = new KernelArguments() { ["input"] = "which country won the WorldCup in the year 1986?" };
-var result = await kernel.InvokeAsync(questionPluginFunctions["Question"], q1);
+var q1 = new KernelArguments() {
+    ["input"] = "Tell me a Christmas joke",
+    ["hero"] = "Ironman"
+};
+var result = await kernel.InvokeAsync(questionPluginFunctions["SuperHeroJoke"], q1);
 Console.WriteLine(result);
 
-var q2 = new KernelArguments() { ["input"] = "which country won the WorldCup in the year 2026?" };
-result = await kernel.InvokeAsync(questionPluginFunctions["Question"], q2);
-Console.WriteLine(result);
