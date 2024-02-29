@@ -23,13 +23,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Question", "Question", "{45
 		plugins\Question\skprompt.txt.json = plugins\Question\skprompt.txt.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-tutorial-04", "sk-tutorial-04\sk-tutorial-04.csproj", "{D7FCD9E2-B497-48F8-810D-40B0CAB6C140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sk-tutorial-04", "sk-tutorial-04\sk-tutorial-04.csproj", "{D7FCD9E2-B497-48F8-810D-40B0CAB6C140}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SuperHeroJoke", "SuperHeroJoke", "{C532D586-ECD4-4934-9879-A36B7CD4531D}"
 	ProjectSection(SolutionItems) = preProject
 		plugins\SuperHeroJoke\config.json = plugins\SuperHeroJoke\config.json
 		plugins\SuperHeroJoke\skprompt.txt = plugins\SuperHeroJoke\skprompt.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-tutorial-05", "sk-tutorial-05\sk-tutorial-05.csproj", "{50AF91B4-BE12-469D-828C-035227B952A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{D7FCD9E2-B497-48F8-810D-40B0CAB6C140}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7FCD9E2-B497-48F8-810D-40B0CAB6C140}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7FCD9E2-B497-48F8-810D-40B0CAB6C140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50AF91B4-BE12-469D-828C-035227B952A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50AF91B4-BE12-469D-828C-035227B952A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50AF91B4-BE12-469D-828C-035227B952A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50AF91B4-BE12-469D-828C-035227B952A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
