@@ -34,6 +34,7 @@ var deploymentName = AzureOpenAI.DeploymentName;
 var endpoint = AzureOpenAI.Endpoint;
 var apiKey = AzureOpenAI.ApiKey;
 
+
 // Create a chat completion service
 var builder = Kernel.CreateBuilder();
 builder.AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
@@ -42,8 +43,7 @@ builder.AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
 #pragma warning disable SKEXP0003, SKEXP0011, SKEXP0052
 var memoryBuilder = new MemoryBuilder();
 
-memoryBuilder.
-    
+memoryBuilder.  
     WithAzureOpenAITextEmbeddingGeneration(
         AzureOpenAI.EmbeddingsModel,
          AzureOpenAI.Endpoint,

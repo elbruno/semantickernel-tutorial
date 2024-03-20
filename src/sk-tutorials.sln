@@ -7,6 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sk-tutorial-01", "sk-tutori
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4FA67AEA-2363-4531-BD30-D1B81EC29D29}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		support\Keys.cs = support\Keys.cs
 	EndProjectSection
 EndProject
@@ -31,11 +32,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SuperHeroJoke", "SuperHeroJ
 		plugins\SuperHeroJoke\skprompt.txt = plugins\SuperHeroJoke\skprompt.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-tutorial-05", "sk-tutorial-05\sk-tutorial-05.csproj", "{50AF91B4-BE12-469D-828C-035227B952A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sk-tutorial-05", "sk-tutorial-05\sk-tutorial-05.csproj", "{50AF91B4-BE12-469D-828C-035227B952A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-tutorial-06", "sk-tutorial-06\sk-tutorial-06.csproj", "{80D99EC8-56F4-4678-8976-1F446A0B6203}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sk-tutorial-06", "sk-tutorial-06\sk-tutorial-06.csproj", "{80D99EC8-56F4-4678-8976-1F446A0B6203}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-tutorial-07", "sk-tutorial-07\sk-tutorial-07.csproj", "{3EB10F39-7422-40D9-843B-862ACD6CC5E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sk-tutorial-07", "sk-tutorial-07\sk-tutorial-07.csproj", "{3EB10F39-7422-40D9-843B-862ACD6CC5E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
