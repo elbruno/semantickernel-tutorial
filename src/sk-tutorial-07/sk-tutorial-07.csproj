@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SemanticKernel" Version="1.6.3" />
-    <PackageReference Include="Microsoft.SemanticKernel.Plugins.Memory" Version="1.6.3-alpha" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.7.1" />
+    <PackageReference Include="Microsoft.SemanticKernel.Plugins.Memory" Version="1.7.1-alpha" />
     <PackageReference Include="System.Linq.Async" Version="6.0.1" />
   </ItemGroup>
 
