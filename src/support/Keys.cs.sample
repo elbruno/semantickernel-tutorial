@@ -12,3 +12,14 @@ public class AzureOpenAI
     public static string Endpoint { get; } = "";
     public static string ApiKey { get; } = "";
 }
+
+public class AzureAISearch
+{
+    public static string Endpoint { get; } = "";
+    public static string ApiKey { get; } = "";
+}
+
+public class SuperHero
+{
+    public static string ApiKey { get; } = "";
+}
