@@ -1,0 +1,12 @@
+WRITE EXACTLY ONE JOKE or HUMOROUS STORY ABOUT THE SUBJECT BELOW
+
+JOKE MUST BE:
+- IN ENGLISH
+
+BE CREATIVE AND FUNNY. I WANT TO LAUGH.
+
+Incorporate the hero if provided: {{$hero}}
++++++
+
+{{$input}}
++++++

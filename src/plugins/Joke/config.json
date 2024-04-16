@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "description": "Generate a funny joke about heroes",
+  "models": [
+    {
+      "max_tokens": 150,
+      "temperature": 0.9,
+      "top_p": 0.5,
+      "presence_penalty": 0.2,
+      "frequency_penalty": 0.3
+    }
+  ],
+  "input": {
+    "parameters": [
+      {
+        "name": "input",
+        "description": "Joke subject",
+        "defaultValue": ""
+      },
+      {
+        "name": "hero",
+        "description": "Give the name of the hero you want to joke about",
+        "defaultValue": ""
+      }
+    ]
+  }
+}
