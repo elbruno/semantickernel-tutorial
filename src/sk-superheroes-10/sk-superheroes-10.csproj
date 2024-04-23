@@ -11,7 +11,6 @@
   <ItemGroup>
     <Compile Include="..\NativeFunctions\HeroInfo.cs" Link="HeroInfo.cs" />
     <Compile Include="..\support\ConsoleHelper.cs" Link="ConsoleHelper.cs" />
-    <Compile Include="..\support\Keys.cs" Link="Keys.cs" />
   </ItemGroup>
 
   <ItemGroup>

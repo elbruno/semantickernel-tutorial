@@ -25,13 +25,16 @@
 
 using Keys;
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Planning.Handlebars;
 using System.Text.Json;
 
 // Create a chat completion service
+var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 IKernelBuilder builder = Kernel.CreateBuilder();
-builder.AddAzureOpenAIChatCompletion(AzureOpenAI.DeploymentName, AzureOpenAI.Endpoint, AzureOpenAI.ApiKey);
+builder.AddAzureOpenAIChatCompletion(
+    config["AZURE_OPENAI_MODEL-GPT3.5"],
+    config["AZURE_OPENAI_ENDPOINT"],
+    config["AZURE_OPENAI_APIKEY"]);
 Kernel kernel = builder.Build();
 
 // Load Plugins
