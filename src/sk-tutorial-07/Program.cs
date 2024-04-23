@@ -51,7 +51,7 @@ memoryBuilder.
 memoryBuilder.WithMemoryStore(new VolatileMemoryStore());
 var memory = memoryBuilder.Build();
 
-// add fan facts to the collection
+// add facts to the collection
 const string MemoryCollectionName = "fanFacts";
 
 await memory.SaveInformationAsync(MemoryCollectionName, id: "info1", text: "Gisela's favourite super hero is Batman");
