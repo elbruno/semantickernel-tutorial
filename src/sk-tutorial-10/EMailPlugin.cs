@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using Microsoft.SemanticKernel;
 
-
 namespace sk_tutorial_10;
 
 public class EmailPlugin
@@ -15,7 +14,6 @@ public class EmailPlugin
     )
     {
         Console.WriteLine("Email infotmation");
-
         Console.WriteLine($"Recipient Emails: {recipientEmails}");
         Console.WriteLine($"Subject: {subject}");
         Console.WriteLine($"Body: {body}");
