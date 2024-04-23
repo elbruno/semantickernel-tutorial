@@ -23,21 +23,20 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
-using Keys;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Memory;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
-using System.Text.Json;
-
-// Azure OpenAI keys
-var deploymentName = AzureOpenAI.DeploymentName;
-var endpoint = AzureOpenAI.Endpoint;
-var apiKey = AzureOpenAI.ApiKey;
+using Microsoft.Extensions.Configuration;
 
 
 // Create a chat completion service
+var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 var builder = Kernel.CreateBuilder();
-builder.AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
+builder.AddAzureOpenAIChatCompletion(
+    config["AZURE_OPENAI_MODEL-GPT3.5"],
+    config["AZURE_OPENAI_ENDPOINT"],
+    config["AZURE_OPENAI_APIKEY"]);
+
 
 // create the memory builder
 #pragma warning disable SKEXP0003, SKEXP0011, SKEXP0052
@@ -45,10 +44,10 @@ var memoryBuilder = new MemoryBuilder();
 
 memoryBuilder.  
     WithAzureOpenAITextEmbeddingGeneration(
-        AzureOpenAI.EmbeddingsModel,
-         AzureOpenAI.Endpoint,
-        AzureOpenAI.ApiKey,
-        "text-embedding-ada-002");
+    config["text-embedding-ada-002"],
+    config["AZURE_OPENAI_ENDPOINT"],
+    config["AZURE_OPENAI_APIKEY"]);
+
 memoryBuilder.WithMemoryStore(new VolatileMemoryStore());
 var memory = memoryBuilder.Build();
 

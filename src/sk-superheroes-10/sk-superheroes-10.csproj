@@ -6,6 +6,7 @@
     <RootNamespace>sk_superheroes_10</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>fe8d3556-9b9f-4734-b493-2d13e6e000a4</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +18,10 @@
     <PackageReference Include="Microsoft.SemanticKernel" Version="1.7.1" />
     <PackageReference Include="Microsoft.SemanticKernel.Planners.Handlebars" Version="1.7.1-preview" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
+
   </ItemGroup>
+	
+	
 
 </Project>

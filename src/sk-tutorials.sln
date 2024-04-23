@@ -50,6 +50,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Joke", "Joke", "{F2378C9C-3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-tutorial-09", "sk-tutorial-09\sk-tutorial-09.csproj", "{CC13AE12-FA5A-47EB-BACA-9A600950E9F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-tutorial-10", "sk-tutorial-10\sk-tutorial-10.csproj", "{48184104-457D-4B0B-B7E7-62ACA87E5CA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +98,10 @@ Global
 		{CC13AE12-FA5A-47EB-BACA-9A600950E9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC13AE12-FA5A-47EB-BACA-9A600950E9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC13AE12-FA5A-47EB-BACA-9A600950E9F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48184104-457D-4B0B-B7E7-62ACA87E5CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48184104-457D-4B0B-B7E7-62ACA87E5CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48184104-457D-4B0B-B7E7-62ACA87E5CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48184104-457D-4B0B-B7E7-62ACA87E5CA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

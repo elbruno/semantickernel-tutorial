@@ -6,14 +6,13 @@
     <RootNamespace>sk_tutorial_07</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>751a9c17-3299-4f82-b47a-7256ee67f2fe</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\support\Keys.cs" Link="Keys.cs" />
-  </ItemGroup>
+	  <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0-preview.3.24172.9" />
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SemanticKernel" Version="1.7.1" />
+	  <PackageReference Include="Microsoft.SemanticKernel" Version="1.7.1" />
     <PackageReference Include="Microsoft.SemanticKernel.Plugins.Memory" Version="1.7.1-alpha" />
     <PackageReference Include="System.Linq.Async" Version="6.0.1" />
   </ItemGroup>

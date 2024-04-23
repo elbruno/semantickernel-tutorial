@@ -23,7 +23,7 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
-using Keys;
+using Microsoft.Extensions.Configuration;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Planning.Handlebars;
 using System.Text.Json;
@@ -71,7 +71,7 @@ result = await kernel.InvokeAsync(pluginFunctions["OOF"], variables);
 ConsoleHelper.PromptAndResponse(variables, result.GetValue<string>());
 
 // get a super hero info
-HeroInfo heroInfo = new HeroInfo(SuperHero.ApiKey);
+HeroInfo heroInfo = new HeroInfo(config["SUPERHERO-APIKEY"]);
 builder.Plugins.AddFromObject(heroInfo, "HeroInfo");
 kernel = builder.Build();
 
