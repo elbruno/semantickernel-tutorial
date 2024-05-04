@@ -1,0 +1,20 @@
+﻿{
+  "applicationName": "El Bruno Pets Search",
+  "description": "View El Bruno's Pets store information.",
+  "publisher": {
+    "name": "Bruno Capuano",
+    "contactEmail": "bruno@elbruno.com"
+  },
+  "apiDependencies": {
+    "elbruno.petssearch": {
+      "apiDescriptionUrl": "http://localhost:5100/swagger/v1/swagger.yaml",
+      "apiDeploymentBaseUrl": "http://localhost:5100/",
+      "requests": [
+        {
+          "method": "GET",
+          "uriTemplate": "/GetAllPets"
+        }
+      ]
+    }
+  }
+}
