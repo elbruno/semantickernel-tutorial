@@ -23,13 +23,15 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
-using Keys;
+
+using Microsoft.Extensions.Configuration;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 
 // OpenAI keys
-var modelId = OpenAI.ModelId;
-var apiKey = OpenAI.ApiKey;
+var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
+var modelId = config["OPENAI_MODEL-GPT3.5"];
+var apiKey = config["OPENAI_APIKEY"];
 
 // Create a chat completion service
 var builder = Kernel.CreateBuilder();

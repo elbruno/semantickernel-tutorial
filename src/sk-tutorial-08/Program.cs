@@ -23,7 +23,6 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
-using Keys;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Memory;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
@@ -31,13 +30,14 @@ using Microsoft.SemanticKernel.Connectors.AzureAISearch;
 using System.Net.Http;
 using HtmlAgilityPack;
 using Azure.AI.OpenAI;
-using Humanizer;
 using System.Diagnostics;
+using Microsoft.Extensions.Configuration;
 
 // Azure OpenAI keys
-string deploymentName = AzureOpenAI.DeploymentName;
-string endpoint = AzureOpenAI.Endpoint;
-string apiKey = AzureOpenAI.ApiKey;
+var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
+var deploymentName = config["AZURE_OPENAI_MODEL-GPT3.5"];
+var endpoint = config["AZURE_OPENAI_ENDPOINT"];
+var apiKey = config["AZURE_OPENAI_APIKEY"];
 
 
 // Create a chat completion service
@@ -50,10 +50,14 @@ MemoryBuilder memoryBuilder = new MemoryBuilder();
 
 memoryBuilder.
     WithAzureOpenAITextEmbeddingGeneration(
-        AzureOpenAI.EmbeddingsModel,
-        AzureOpenAI.Endpoint,
-        AzureOpenAI.ApiKey)
-    .WithMemoryStore(new AzureAISearchMemoryStore(AzureAISearch.Endpoint, AzureAISearch.ApiKey));
+        config["AZURE_OPENAI_MODEL-davinci-002"], // AzureOpenAI.EmbeddingsModel,
+        config["AZURE_OPENAI_ENDPOINT-TEXTCOMPLETIONS"], //AzureOpenAI.Endpoint,
+        config["AZURE_OPENAI_ENDPOINT-TEXTCOMPLETIONS"] //AzureOpenAI.ApiKey
+        )
+    .WithMemoryStore(new AzureAISearchMemoryStore(
+        config["AZURE_AISEARCH_ENDPOINT"], //AzureAISearch.Endpoint, 
+        config["AZURE_AISEARCH_APIKEY"] //AzureAISearch.ApiKey
+        ));
 
 ISemanticTextMemory memory = memoryBuilder.Build();
 

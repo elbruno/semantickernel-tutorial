@@ -23,20 +23,21 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
-using Keys;
+using Microsoft.Extensions.Configuration;
 using Microsoft.SemanticKernel;
 
 // Azure OpenAI keys
-var deploymentName = AzureOpenAI.DeploymentName;
-var endpoint = AzureOpenAI.Endpoint;
-var apiKey = AzureOpenAI.ApiKey;
+var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
+var deploymentName = config["AZURE_OPENAI_MODEL-GPT3.5"];
+var endpoint = config["AZURE_OPENAI_ENDPOINT"];
+var apiKey = config["AZURE_OPENAI_APIKEY"];
 
 // Create a chat completion service
 var builder = Kernel.CreateBuilder();
 builder.AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
 
 // add the hero info native functions
-var heroInfo = new HeroInfo(SuperHero.ApiKey);
+var heroInfo = new HeroInfo("");
 builder.Plugins.AddFromObject(heroInfo, "HeroInfo");
 Kernel kernel = builder.Build();
 

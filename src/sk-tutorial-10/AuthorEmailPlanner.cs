@@ -1,4 +1,7 @@
-﻿namespace sk_tutorial_10;
+﻿using Microsoft.SemanticKernel;
+using System.ComponentModel;
+
+namespace sk_tutorial_10;
 
 public class AuthorEmailPlanner
 {
