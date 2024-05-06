@@ -1,12 +1,31 @@
 ﻿{
-  "applicationName": "El Bruno Pets Search",
-  "description": "View El Bruno's Pets store information.",
+  "applicationName": "SKs Labs",
+  "description": "SKs Labs",
   "publisher": {
     "name": "Bruno Capuano",
     "contactEmail": "bruno@elbruno.com"
   },
   "apiDependencies": {
-    "elbruno.petssearch": {
+    "github": {
+      "apiDescriptionUrl": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.yaml",
+      "requests": [
+        {
+          "method": "POST",
+          "uriTemplate": "/markdown"
+        }
+      ]
+    },
+    "superheroapi": {
+      "apiDescriptionUrl": "http://localhost:5188/swagger/v1/swagger.yaml",
+      "apiDeploymentBaseUrl": "http://localhost:5188/",
+      "requests": [
+        {
+          "method": "GET",
+          "uriTemplate": "/GetAllHeroes"
+        }
+      ]
+    },
+    "petssearch": {
       "apiDescriptionUrl": "http://localhost:5100/swagger/v1/swagger.yaml",
       "apiDeploymentBaseUrl": "http://localhost:5100/",
       "requests": [
