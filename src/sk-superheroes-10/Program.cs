@@ -32,7 +32,7 @@ using System.Text.Json;
 var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
 IKernelBuilder builder = Kernel.CreateBuilder();
 builder.AddAzureOpenAIChatCompletion(
-    config["AZURE_OPENAI_MODEL-GPT3.5"],
+    config["AZURE_OPENAI_MODEL"],
     config["AZURE_OPENAI_ENDPOINT"],
     config["AZURE_OPENAI_APIKEY"]);
 Kernel kernel = builder.Build();
