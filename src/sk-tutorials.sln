@@ -52,7 +52,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sk-tutorial-09", "sk-tutori
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sk-tutorial-10", "sk-tutorial-10\sk-tutorial-10.csproj", "{48184104-457D-4B0B-B7E7-62ACA87E5CA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-tutorial-11", "sk-tutorial-11\sk-tutorial-11.csproj", "{A0F1BBA5-52FE-45FD-B70F-232001ED1D85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sk-tutorial-11", "sk-tutorial-11\sk-tutorial-11.csproj", "{A0F1BBA5-52FE-45FD-B70F-232001ED1D85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-tutorial-12", "sk-tutorial-12\sk-tutorial-12.csproj", "{C397056A-B94D-4A21-8BE3-5158F14D8429}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -108,6 +110,10 @@ Global
 		{A0F1BBA5-52FE-45FD-B70F-232001ED1D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0F1BBA5-52FE-45FD-B70F-232001ED1D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0F1BBA5-52FE-45FD-B70F-232001ED1D85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C397056A-B94D-4A21-8BE3-5158F14D8429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C397056A-B94D-4A21-8BE3-5158F14D8429}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C397056A-B94D-4A21-8BE3-5158F14D8429}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C397056A-B94D-4A21-8BE3-5158F14D8429}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
