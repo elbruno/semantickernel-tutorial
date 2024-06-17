@@ -1,7 +1,7 @@
 ﻿//    Copyright (c) 2024
 //    Author      : Bruno Capuano
 //    Change Log  :
-//    - Sample console application to use Azure OpenAI and Semantic Kernel
+//    - Sample console application to use Azure OpenAI Search and Semantic Kernel
 //
 //    The MIT License (MIT)
 //
@@ -47,10 +47,13 @@ builder.AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
 Kernel kernel = builder.Build();
 var chat = kernel.GetRequiredService<IChatCompletionService>();
 
+var systemMessage = "You are a helpful assistant. You respond in a simple and short way.";
+var userMessage = "What do you suggest to go hiking in a rainy day?";
+
 // Create a sample chat history
 var history = new ChatHistory();
-history.AddSystemMessage("You are a helpful assistant.");
-history.AddUserMessage("What do you suggest to go hiking in a rainy day?");
+history.AddSystemMessage(systemMessage);
+history.AddUserMessage(userMessage);
 
 var azureSearchExtensionConfiguration = new AzureSearchChatExtensionConfiguration
 {
@@ -64,18 +67,24 @@ var executionSettings = new OpenAIPromptExecutionSettings { AzureChatExtensionsO
 // run the prompt
 var result = await chat.GetChatMessageContentsAsync(history, executionSettings);
 var content = result[^1].Content;
-Console.WriteLine(content);
+
+Console.WriteLine($"System Message: {systemMessage}");
+Console.WriteLine($"User Message: {userMessage}");
+Console.WriteLine($"AOAI Response: {content}");
 
 if (result.FirstOrDefault().InnerContent is ChatResponseMessage)
 {
+    Console.WriteLine("============================");
+    Console.WriteLine("Citations");
+    Console.WriteLine("============================");
     var ic = result.FirstOrDefault().InnerContent as ChatResponseMessage;
     var aec = ic.AzureExtensionsContext;
     var citations = aec.Citations;
     foreach (var citation in citations)
     {
-        Console.WriteLine($"Title: {citation.Title}");
-        Console.WriteLine($"URL: {citation.Url}");
-        Console.WriteLine($"Filepath: {citation.Filepath}");
-        Console.WriteLine($"Content: {citation.Content.Substring(0, 50)}");
+        Console.WriteLine($"\tTitle: {citation.Title}");
+        Console.WriteLine($"\tURL: {citation.Url}");
+        Console.WriteLine($"\tFilepath: {citation.Filepath}");
+        Console.WriteLine($"\tContent: {citation.Content.Substring(0, 50)}");
     }
 }
