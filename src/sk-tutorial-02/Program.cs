@@ -29,7 +29,7 @@ using Microsoft.SemanticKernel.ChatCompletion;
 
 // Azure OpenAI keys
 var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
-var deploymentName = config["AZURE_OPENAI_MODEL-GPT3.5"];
+var deploymentName = config["AZURE_OPENAI_MODEL"];
 var endpoint = config["AZURE_OPENAI_ENDPOINT"];
 var apiKey = config["AZURE_OPENAI_APIKEY"];
 
