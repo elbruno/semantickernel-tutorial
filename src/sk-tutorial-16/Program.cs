@@ -1,7 +1,7 @@
 ﻿//    Copyright (c) 2024
 //    Author      : Bruno Capuano
 //    Change Log  :
-//    - Sample console application to use Azure OpenAI and Semantic Kernel
+//    - Sample console application to use a local model hosted in ollama and semantic memory for search
 //
 //    The MIT License (MIT)
 //
@@ -35,34 +35,37 @@ using Microsoft.SemanticKernel.Embeddings;
 using Microsoft.SemanticKernel.Memory;
 using Microsoft.SemanticKernel.Plugins.Memory;
 
-// Azure OpenAI keys
-var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
-var deploymentName = config["AZURE_OPENAI_MODEL"];
-var endpoint = config["AZURE_OPENAI_ENDPOINT"];
-var apiKey = config["AZURE_OPENAI_APIKEY"];
-
+var question = "What is Bruno's favourite super hero?";
+Console.WriteLine($"This program will answer the following question: {question}");
+Console.WriteLine("1st approach will be to ask the question directly to the Phi-3 model.");
+Console.WriteLine("2nd approach will be to add facts to a semantic memory and ask the question again");
+Console.WriteLine("");
 
 // Create a chat completion service
 var builder = Kernel.CreateBuilder();
-builder.AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
+builder.AddOpenAIChatCompletion(
+    modelId: "phi3",
+    endpoint: new Uri("http://cpc-bruno-83lkq-docker-desktop:11434/"),
+    apiKey: "apikey");
 builder.AddLocalTextEmbeddingGeneration();
 Kernel kernel = builder.Build();
 
-var question = "What is Bruno's favourite super hero?";
+Console.WriteLine($"Phi-3 response (no memory).");
+var response = kernel.InvokePromptStreamingAsync(question);
+await foreach (var result in response)
+{
+    Console.Write(result);
+}
 
-var response = await kernel.InvokePromptAsync(question);
-Console.WriteLine($"{question}: {response.GetValue<string>()}");
+// separator
+Console.WriteLine("");
+Console.WriteLine("==============");
+Console.WriteLine("");
 
-// display a message that sais press a key to continue
-Console.WriteLine("Press a key to continue...");
-Console.ReadLine();
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-///
 // get the embeddings generator service
 var embeddingGenerator = kernel.Services.GetRequiredService<ITextEmbeddingGenerationService>();
 
-SemanticTextMemory memory = new(new VolatileMemoryStore(), embeddingGenerator);
+var memory = new SemanticTextMemory(new VolatileMemoryStore(), embeddingGenerator);
 
 // add facts to the collection
 const string MemoryCollectionName = "fanFacts";
@@ -86,17 +89,18 @@ OpenAIPromptExecutionSettings settings = new()
 
 var prompt = @"
     Question: {{$input}}
-    Answer the question using the memory content: {{Recall}}
-";
+    Answer the question using the memory content: {{Recall}}";
 
-KernelArguments arguments = new KernelArguments(settings)
+var arguments = new KernelArguments(settings)
 {
     { "input", question },
     { "collection", MemoryCollectionName }
-
 };
 
-response = await kernel.InvokePromptAsync(prompt, arguments);
+Console.WriteLine($"Phi-3 response (using semantic memory).");
 
-// run the prompt
-Console.WriteLine($"{question}: {response.GetValue<string>()}");
+response = kernel.InvokePromptStreamingAsync(prompt, arguments);
+await foreach (var result in response)
+{
+    Console.Write(result);
+}
