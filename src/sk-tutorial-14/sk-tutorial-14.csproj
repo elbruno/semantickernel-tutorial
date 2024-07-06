@@ -13,7 +13,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0-preview.5.24306.7" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0-preview.5.24306.7" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.0-preview.5.24306.7" />
-    <PackageReference Include="Microsoft.SemanticKernel" Version="1.14.1" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.15.1" />
   </ItemGroup>
 
 </Project>

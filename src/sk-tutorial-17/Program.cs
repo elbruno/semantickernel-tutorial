@@ -1,7 +1,7 @@
 ﻿//    Copyright (c) 2024
 //    Author      : Bruno Capuano
 //    Change Log  :
-//    - Sample console application to use OpenAI and Semantic Kernel
+//    - Sample console application to show how to use native functions with Semantic Kernel
 //
 //    The MIT License (MIT)
 //
@@ -28,75 +28,38 @@ using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Planning.Handlebars;
 using System.Text.Json;
 
-// Create a chat completion service
+// Azure OpenAI keys
 var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
-IKernelBuilder builder = Kernel.CreateBuilder();
-builder.AddAzureOpenAIChatCompletion(
-    config["AZURE_OPENAI_MODEL"],
-    config["AZURE_OPENAI_ENDPOINT"],
-    config["AZURE_OPENAI_APIKEY"]);
-Kernel kernel = builder.Build();
+var deploymentName = config["AZURE_OPENAI_MODEL"];
+var endpoint = config["AZURE_OPENAI_ENDPOINT"];
+var apiKey = config["AZURE_OPENAI_APIKEY"];
 
-// Load Plugins
-string pluginsDirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\", "plugins");
-KernelPlugin pluginFunctions = kernel.ImportPluginFromPromptDirectory(pluginsDirectoryPath);
+// Create a chat completion service
+var builder = Kernel.CreateBuilder();
+//builder.AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
+builder.AddOpenAIChatCompletion(
+    modelId: "phi3",
+    endpoint: new Uri("http://localhost:11434"),
+    apiKey: "apikey");
 
-// tell a super hero joke
-KernelArguments variables = new KernelArguments()
-{
-    ["input"] = "Tell me a April's fools joke",
-    ["hero"] = "Batman"
-};
-FunctionResult result = await kernel.InvokeAsync(pluginFunctions["Joke"], variables);
-
-ConsoleHelper.PromptAndResponse(variables, result.GetValue<string>());
-
-// tell a super hero story
-variables = new KernelArguments()
-{
-    ["input"] = "Tell me a Spring Story",
-    ["hero"] = "Superman"
-};
-
-ConsoleHelper.PromptAndResponse(variables, result.GetValue<string>());
-
-// create an out of office
-variables = new KernelArguments()
-{
-    ["input"] = "Create an OOF for Christmas",
-    ["hero"] = "Hulk"
-};
-
-result = await kernel.InvokeAsync(pluginFunctions["OOF"], variables);
-ConsoleHelper.PromptAndResponse(variables, result.GetValue<string>());
-
-// get a super hero info
-HeroInfo heroInfo = new HeroInfo(config["SUPERHERO_APIKEY"]);
+// add the hero info native functions
+var heroInfo = new HeroInfo(config["SUPERHERO_APIKEY"]);
 builder.Plugins.AddFromObject(heroInfo, "HeroInfo");
-kernel = builder.Build();
-
-// get the alter ego of an hero using native functions
-variables = new KernelArguments()
-{
-    ["input"] = "Ironman"
-};
-
-string? heroResult = await kernel.InvokeAsync<string>("HeroInfo", "GetAlterEgo", variables);
-ConsoleHelper.PromptAndResponse(variables, heroResult);
+Kernel kernel = builder.Build();
 
 // Create planner
 #pragma warning disable SKEXP0060
-HandlebarsPlanner planner = new HandlebarsPlanner();
+var planner = new HandlebarsPlanner();
 
-string ask = "I would like you to tell me a joke about Batman, and with that joke, create an out-of-office message using the joke.";
-HandlebarsPlan originalPlan = await planner.CreatePlanAsync(kernel, ask);
+var ask = "Find out who is Batman, and show a response with the super hero name and the alter ego name. Use emojis and a list for the response.";
+var originalPlan = await planner.CreatePlanAsync(kernel, ask);
 
 Console.WriteLine("Original plan:\n");
 Console.WriteLine(JsonSerializer.Serialize(originalPlan, new JsonSerializerOptions { WriteIndented = true }));
 
 // executing the plan
 #pragma warning disable SKEXP0060
-string originalPlanResult = await originalPlan.InvokeAsync(kernel, new KernelArguments());
+var originalPlanResult = await originalPlan.InvokeAsync(kernel, new KernelArguments());
 
 Console.WriteLine("Original Plan results:\n");
 Console.WriteLine(originalPlanResult.ToString());

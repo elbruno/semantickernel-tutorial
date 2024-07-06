@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>sk_tutorial_17</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <UserSecretsId>fac409e0-3adc-4302-a6a0-9acaa36005ef</UserSecretsId>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>sk_tutorial_18</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UserSecretsId>6704d18e-d9bf-4120-bc09-dd7b4d2025ee</UserSecretsId>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<Compile Include="..\NativeFunctions\HeroInfo.cs" Link="HeroInfo.cs" />
@@ -19,8 +19,6 @@
 		<PackageReference Include="Microsoft.SemanticKernel.Planners.Handlebars" Version="1.15.1-preview" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0-preview.5.24306.7" />
-
 	</ItemGroup>
-
 
 </Project>
