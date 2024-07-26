@@ -45,7 +45,7 @@ Console.WriteLine("");
 var builder = Kernel.CreateBuilder();
 builder.AddOpenAIChatCompletion(
     modelId: "phi3",
-    endpoint: new Uri("http://cpc-bruno-83lkq-docker-desktop:11434/"),
+    endpoint: new Uri("http://localhost:11434/"),
     apiKey: "apikey");
 builder.AddLocalTextEmbeddingGeneration();
 Kernel kernel = builder.Build();

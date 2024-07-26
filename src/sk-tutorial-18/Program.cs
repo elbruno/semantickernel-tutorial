@@ -6,15 +6,13 @@ using Microsoft.SemanticKernel.Connectors.OpenAI;
 
 // create kernel
 var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
-var deploymentName = config["AZURE_OPENAI_MODEL"];
-var endpoint = config["AZURE_OPENAI_ENDPOINT"];
-var apiKey = config["AZURE_OPENAI_APIKEY"];
 var superHeroApiKey = config["SUPERHERO_APIKEY"];
 
+var modelId = "llama3.1:8b";
+
 var builder = Kernel.CreateBuilder();
-//builder.AddAzureOpenAIChatCompletion(deploymentName, endpoint, apiKey);
 builder.AddOpenAIChatCompletion(
-    modelId: "phi3",
+    modelId: modelId,
     endpoint: new Uri("http://localhost:11434"),
     apiKey: "apikey");
 
@@ -39,7 +37,7 @@ while (true)
     }
     history.AddUserMessage(userQ);
 
-    Console.Write($"Phi3: ");
+    Console.Write($"{modelId}: ");
 
     OpenAIPromptExecutionSettings settings = new()
     {
