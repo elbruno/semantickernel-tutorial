@@ -42,7 +42,7 @@ builder.AddAzureOpenAIChatCompletion(
 #pragma warning disable SKEXP0003, SKEXP0011, SKEXP0052
 var memoryBuilder = new MemoryBuilder();
 
-memoryBuilder.  
+memoryBuilder.
     WithAzureOpenAITextEmbeddingGeneration(
     config["text-embedding-ada-002"],
     config["AZURE_OPENAI_ENDPOINT"],

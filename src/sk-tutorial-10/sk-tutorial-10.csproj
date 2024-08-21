@@ -9,9 +9,9 @@
     <UserSecretsId>ee776406-9a24-4cc5-8215-f5f84d7d8cf4</UserSecretsId>
   </PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0-preview.6.24327.7" />
-		<PackageReference Include="Microsoft.SemanticKernel" Version="1.16.1" />
-		<PackageReference Include="Microsoft.SemanticKernel.Planners.OpenAI" Version="1.16.1-preview" />
-		<PackageReference Include="Microsoft.SemanticKernel.PromptTemplates.Handlebars" Version="1.16.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0-preview.7.24405.7" />
+		<PackageReference Include="Microsoft.SemanticKernel" Version="1.18.0-rc" />
+		<PackageReference Include="Microsoft.SemanticKernel.Planners.OpenAI" Version="1.18.0-preview" />
+		<PackageReference Include="Microsoft.SemanticKernel.PromptTemplates.Handlebars" Version="1.18.0-rc" />
 	</ItemGroup>
 </Project>
