@@ -86,7 +86,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Planner Samples", "Planner 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Azure AI Search", "Azure AI Search", "{B01C8328-120C-46F2-9931-DDF4073ADAF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "skPlanner01", "skPlanner01\skPlanner01.csproj", "{8CF2F550-C3D5-4986-9996-1E78D5AF0C1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "skPlanner01", "skPlanner01\skPlanner01.csproj", "{8CF2F550-C3D5-4986-9996-1E78D5AF0C1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-aoaichat-qa01", "sk-aoaichat-qa01\sk-aoaichat-qa01.csproj", "{3088BE35-070A-4423-8DB0-6B32748017D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -170,6 +172,10 @@ Global
 		{8CF2F550-C3D5-4986-9996-1E78D5AF0C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CF2F550-C3D5-4986-9996-1E78D5AF0C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CF2F550-C3D5-4986-9996-1E78D5AF0C1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3088BE35-070A-4423-8DB0-6B32748017D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3088BE35-070A-4423-8DB0-6B32748017D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3088BE35-070A-4423-8DB0-6B32748017D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3088BE35-070A-4423-8DB0-6B32748017D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -197,6 +203,7 @@ Global
 		{803A0925-ECFB-4D52-8E15-F42A8A94EB3D} = {0F9A64E4-1ED3-40ED-9968-2E7C0408506C}
 		{A1428C71-4ED0-4A0A-BDFE-BDCFF8D9BC6D} = {0F9A64E4-1ED3-40ED-9968-2E7C0408506C}
 		{8CF2F550-C3D5-4986-9996-1E78D5AF0C1D} = {867A04E1-D902-428A-A825-41AB92A1250C}
+		{3088BE35-070A-4423-8DB0-6B32748017D1} = {36C0C32D-1682-45D7-9581-FD36895C21F7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C86473F-EF44-4D19-92BD-6D51BC56AE31}
