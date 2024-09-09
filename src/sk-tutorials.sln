@@ -98,7 +98,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Connectors.OnnxRuntimeGenAI
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LLama3.1", "LLama3.1", "{632E5AE6-8B13-4552-9705-417C41C56F83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-llama31-helloworld", "sk-llama31-helloworld\sk-llama31-helloworld.csproj", "{72DF4CDE-EE02-427F-91C6-376F659EE3D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sk-llama31-helloworld", "sk-llama31-helloworld\sk-llama31-helloworld.csproj", "{72DF4CDE-EE02-427F-91C6-376F659EE3D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sk-llama31-OpenAIClient", "sk-llama31-OpenAIClient\sk-llama31-OpenAIClient.csproj", "{9865076C-AD25-463E-AFD6-094B468F335D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -386,6 +388,18 @@ Global
 		{72DF4CDE-EE02-427F-91C6-376F659EE3D1}.Release_DirectML|Any CPU.Build.0 = Release|Any CPU
 		{72DF4CDE-EE02-427F-91C6-376F659EE3D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72DF4CDE-EE02-427F-91C6-376F659EE3D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Debug_Cuda|Any CPU.ActiveCfg = Debug|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Debug_Cuda|Any CPU.Build.0 = Debug|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Debug_DirectML|Any CPU.ActiveCfg = Debug|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Debug_DirectML|Any CPU.Build.0 = Debug|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Release_Cuda|Any CPU.ActiveCfg = Release|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Release_Cuda|Any CPU.Build.0 = Release|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Release_DirectML|Any CPU.ActiveCfg = Release|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Release_DirectML|Any CPU.Build.0 = Release|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9865076C-AD25-463E-AFD6-094B468F335D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -417,6 +431,7 @@ Global
 		{D58760E5-DFC9-4300-9119-505955EF519A} = {4BCB36B3-CC83-4460-A1DB-9BE0117D90D0}
 		{172EC9E9-E19B-4568-A8A4-B15B676382FC} = {50529559-96F0-455E-AC09-3F6E1DFDA922}
 		{72DF4CDE-EE02-427F-91C6-376F659EE3D1} = {632E5AE6-8B13-4552-9705-417C41C56F83}
+		{9865076C-AD25-463E-AFD6-094B468F335D} = {632E5AE6-8B13-4552-9705-417C41C56F83}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C86473F-EF44-4D19-92BD-6D51BC56AE31}
