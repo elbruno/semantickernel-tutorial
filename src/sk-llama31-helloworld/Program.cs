@@ -27,12 +27,13 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
+using System.Text;
 
 // OpenAI keys
 var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
-var modelId = "Phi-3-5-mini-instruct-bruno\r\n"; // config["AZURE_PHI35_NAME"];
-var uri = "https://phi-3-5-mini-instruct-bruno.eastus2.models.ai.azure.com/"; // config["AZURE_PHI35_URI"];
-var apiKey = "D9JOmgsNsB7KYNp8Uv1IYv8BUwuSseBa"; // config["AZURE_PHI35_KEY"];
+var modelId = config["AZURE_PHI35_NAME"];
+var uri = config["AZURE_PHI35_URI"];
+var apiKey = config["AZURE_PHI35_APIKEY"];
 
 // Create a chat completion service
 var builder = Kernel.CreateBuilder();
@@ -55,7 +56,15 @@ while (true)
     }
     history.AddUserMessage(userQ);
 
-    var result = await chat.GetChatMessageContentsAsync(history);
-    Console.WriteLine(result[^1].Content);
-    history.Add(result[^1]);
+    var sb = new StringBuilder();
+    var result = chat.GetStreamingChatMessageContentsAsync(history);
+    Console.Write("AI: ");
+    await foreach (var item in result)
+    {
+        sb.Append(item);
+        Console.Write(item.Content);
+    }
+    Console.WriteLine();    
+
+    history.AddAssistantMessage(sb.ToString());
 }
