@@ -48,7 +48,7 @@ var questionSpanish = "Cual es el SuperHeroe favorito de Bruno?";
 var questionFrench = "Quel est le super-héros préféré de Bruno?";
 var questionEnglish1 = "Who likes Batman?";
 var questionSpanish2 = "A quien le gusta Batman?";
-var question = questionEnglish;
+var question = questionEnglish1;
 
 // intro
 SpectreConsoleOutput.DisplayTitle();
@@ -101,7 +101,8 @@ var memory = new SemanticTextMemory(new VolatileMemoryStore(), embeddingGenerato
 // add facts to the collection
 const string MemoryCollectionName = "fanFacts";
 
-await memory.SaveInformationAsync(MemoryCollectionName, id: "info1", text: "Gisela's favourite super hero is Batman");
+await memory.SaveInformationAsync(MemoryCollectionName, id: "info1", 
+    text: "Gisela's favourite super hero is Batman");
 await memory.SaveInformationAsync(MemoryCollectionName, id: "info2", text: "The last super hero movie watched by Gisela was Guardians of the Galaxy Vol 3");
 await memory.SaveInformationAsync(MemoryCollectionName, id: "info3", text: "Bruno's favourite super hero is Invincible");
 await memory.SaveInformationAsync(MemoryCollectionName, id: "info4", text: "The last super hero movie watched by Bruno was Deadpool and Wolverine");

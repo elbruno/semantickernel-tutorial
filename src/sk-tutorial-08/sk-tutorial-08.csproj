@@ -11,7 +11,7 @@
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.65" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0-preview.7.24405.7" />
-    <PackageReference Include="Microsoft.SemanticKernel" Version="1.18.0-rc" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.19.0" />
     <PackageReference Include="Microsoft.SemanticKernel.Connectors.AzureAISearch" Version="1.18.0-alpha" />
     <PackageReference Include="Microsoft.SemanticKernel.Plugins.Memory" Version="1.18.0-alpha" />
     <PackageReference Include="System.Linq" Version="4.3.0" />

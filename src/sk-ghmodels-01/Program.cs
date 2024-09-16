@@ -33,7 +33,7 @@ using System.Text;
 
 // Create a chat completion service with a model from GitHub Models 
 var config = new ConfigurationBuilder().AddUserSecrets<Program>().Build();
-var modelId = config["GHMODELS_PHI35_NAME"];
+var modelId = "meta-llama-3.1-8b-instruct";  //config["GHMODELS_PHI35_NAME"];
 var uri = config["GHMODELS_PHI35_URI"];
 var githubPAT = config["GH_PAT"];
 
