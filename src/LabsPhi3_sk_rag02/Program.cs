@@ -58,15 +58,16 @@ SpectreConsoleOutput.DisplayTitleH3("1st approach will be to ask the question di
 SpectreConsoleOutput.DisplayTitleH3("2nd approach will be to add facts to a semantic memory and ask the question again");
 Console.WriteLine("");
 
-var modelPath = @"D:\phi3\models\Phi-3-mini-4k-instruct-onnx\cpu_and_mobile\cpu-int4-rtn-block-32";
+//var modelPath = @"D:\phi3\models\Phi-3-mini-4k-instruct-onnx\cpu_and_mobile\cpu-int4-rtn-block-32";
+var modelPath = @"c:\src\phi3\models\Phi-3.5-mini-instruct-onnx\cpu_and_mobile\cpu-int4-awq-block-128-acc-level-4";
 
 // Create a chat completion service
 var builder = Kernel.CreateBuilder();
-//builder.AddOnnxRuntimeGenAIChatCompletion(modelPath: modelPath);
-builder.AddOpenAIChatCompletion(
-    modelId: "phi3.5",
-    endpoint: new Uri("http://localhost:11434"),
-    apiKey: "apikey");
+builder.AddOnnxRuntimeGenAIChatCompletion(modelPath: modelPath);
+//builder.AddOpenAIChatCompletion(
+//    modelId: "phi3.5",
+//    endpoint: new Uri("http://localhost:11434"),
+//    apiKey: "apikey");
 builder.AddLocalTextEmbeddingGeneration();
 Kernel kernel = builder.Build();
 var chat = kernel.GetRequiredService<IChatCompletionService>();
