@@ -48,7 +48,7 @@ var questionSpanish = "Cual es el SuperHeroe favorito de Bruno?";
 var questionFrench = "Quel est le super-héros préféré de Bruno?";
 var questionEnglish1 = "Who likes Batman?";
 var questionSpanish2 = "A quien le gusta Batman?";
-var question = questionEnglish1;
+var question = questionEnglish;
 
 // intro
 SpectreConsoleOutput.DisplayTitle();
@@ -62,11 +62,11 @@ var modelPath = @"D:\phi3\models\Phi-3-mini-4k-instruct-onnx\cpu_and_mobile\cpu-
 
 // Create a chat completion service
 var builder = Kernel.CreateBuilder();
-builder.AddOnnxRuntimeGenAIChatCompletion(modelPath: modelPath);
-//builder.AddOpenAIChatCompletion(
-//    modelId: "phi3.5",
-//    endpoint: new Uri("http://localhost:11434"),
-//    apiKey: "apikey");
+//builder.AddOnnxRuntimeGenAIChatCompletion(modelPath: modelPath);
+builder.AddOpenAIChatCompletion(
+    modelId: "phi3.5",
+    endpoint: new Uri("http://localhost:11434"),
+    apiKey: "apikey");
 builder.AddLocalTextEmbeddingGeneration();
 Kernel kernel = builder.Build();
 var chat = kernel.GetRequiredService<IChatCompletionService>();
@@ -99,14 +99,22 @@ var embeddingGenerator = kernel.Services.GetRequiredService<ITextEmbeddingGenera
 var memory = new SemanticTextMemory(new VolatileMemoryStore(), embeddingGenerator);
 
 // add facts to the collection
-const string MemoryCollectionName = "fanFacts";
+Dictionary<string, string> memoryInformation = new ()
+{
+    {"1", "Gisela's favourite super hero is Batman" },
+    {"2", "The last super hero movie watched by Gisela was Guardians of the Galaxy Vol 3" },
+    {"3", "Bruno's favourite super hero is Invincible" },
+    {"4", "The last super hero movie watched by Bruno was Deadpool and Wolverine" },
+    {"5", "Bruno don't like the super hero movie: Eternals" }
+};
 
-await memory.SaveInformationAsync(MemoryCollectionName, id: "info1", 
-    text: "Gisela's favourite super hero is Batman");
-await memory.SaveInformationAsync(MemoryCollectionName, id: "info2", text: "The last super hero movie watched by Gisela was Guardians of the Galaxy Vol 3");
-await memory.SaveInformationAsync(MemoryCollectionName, id: "info3", text: "Bruno's favourite super hero is Invincible");
-await memory.SaveInformationAsync(MemoryCollectionName, id: "info4", text: "The last super hero movie watched by Bruno was Deadpool and Wolverine");
-await memory.SaveInformationAsync(MemoryCollectionName, id: "info5", text: "Bruno don't like the super hero movie: Eternals");
+const string MemoryCollectionName = "fanFacts";
+foreach (var information in memoryInformation)
+{
+    await memory.SaveInformationAsync(MemoryCollectionName, 
+        id: information.Key, 
+        text: information.Value);
+}
 
 TextMemoryPlugin memoryPlugin = new(memory);
 
